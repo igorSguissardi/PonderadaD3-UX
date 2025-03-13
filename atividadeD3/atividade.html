@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de São Paulo com Pontos Vermelhos</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    svg {
+      width: 800px;
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+  
+    const geojsonFile = "distritos-sp.geojson";
+  
+    const csvFile = "dados.csv";
+
+    Promise.all([
+      d3.json(geojsonFile),
+      d3.csv(csvFile, function(d) {
+        return {
+          primaryind: +d.primaryind,
+          ds_codigo: d.ds_codigo,
+          ds_subpref: d.ds_subpref,
+          ds_cd_sub: d.ds_cd_sub,
+          ds_sigla: d.ds_sigla,
+          ds_nome: d.ds_nome
+        };
+      })
+    ]).then(function([geojson, csvData]) {
+      
+
+      console.log("GeoJSON carregado:", geojson);
+      console.log("Propriedades da primeira feature:", geojson.features[0].properties);
+
+
+      const groupedData = d3.group(csvData, d => d.ds_subpref);
+
+      const dataMap = new Map();
+      groupedData.forEach((records, key) => {
+        dataMap.set(key, records.length);
+      });
+
+
+      geojson.features.forEach(function(feature) {
+
+        const subprefName = feature.properties.ds_subpref; 
+
+        feature.properties.value = dataMap.get(subprefName) || 0;
+      });
+
+
+      const width = 800, height = 600;
+      const svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height);
+
+
+      const projection = d3.geoMercator()
+                           .fitSize([width, height], geojson);
+      const path = d3.geoPath().projection(projection);
+
+
+      const colorScale = d3.scaleQuantize()
+                           .domain([0, d3.max(geojson.features, d => d.properties.value)])
+                           .range(d3.schemeBlues[9]);
+
+
+      svg.selectAll("path")
+         .data(geojson.features)
+         .enter()
+         .append("path")
+         .attr("d", path)
+         .attr("fill", d => colorScale(d.properties.value))
+         .attr("stroke", "#fff")
+         .attr("stroke-width", 0.5)
+         .append("title")
+         .text(d => `${d.properties.ds_subpref}: ${d.properties.value} registro(s)`);
+
+    
+      const points = csvData.map(function(record) {
+         const feature = geojson.features.find(f => f.properties.ds_subpref === record.ds_subpref);
+         if(feature) {
+
+           const centroid = path.centroid(feature);
+           return {
+             ...record,
+             coordinates: centroid
+           };
+         } else {
+
+           console.log(`Não encontrado no GeoJSON: ${record.ds_subpref}`);
+           return null;
+         }
+      }).filter(d => d !== null);
+
+
+      svg.selectAll("circle")
+         .data(points)
+         .enter()
+         .append("circle")
+         .attr("cx", d => d.coordinates[0])
+         .attr("cy", d => d.coordinates[1])
+         .attr("r", 4)
+         .attr("fill", "red")
+         .attr("stroke", "#fff")
+         .attr("stroke-width", 0.5)
+         .append("title")
+         .text(d => `${d.ds_subpref} - ${d.ds_nome}`);
+
+      console.log("Pontos plotados:", points);
+
+    }).catch(function(error) {
+      console.error("Erro ao carregar os dados:", error);
+    });
+  </script>
+</body>
+</html>
