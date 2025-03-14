@@ -20,7 +20,12 @@ Pedro Auler
 
 ### Rascunho
 &emsp;O rascunho desenhado durante o momento de brainstorm, no início da dinâmica, foi imaginado da seguinte forma: o contorno externo representa a cidade de São Paulo, as linhas internas são as delimitações dos distritos da cidade ou de possíveis zonas de atendimento e os pontilhados no mapa são as home bases dos gasista que foram alocadas.
-
+<style>
+.img-responsive {
+    max-width: 70%; /* Reduz para 50% da largura do contêiner pai */
+    height: auto; /* Mantém a proporção da imagem */
+}
+</style>
 </div>
 <br>
 
