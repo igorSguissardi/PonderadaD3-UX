@@ -28,7 +28,7 @@ Pedro Auler
 
 <sub>Figura 1 - Rascunho Gráfico SP</sub>
 
-![Rascunho Gráfico SP](PonderadaD3-UX\assets\imagemRascunho.jpg)
+![Rascunho Grafico SP](assets\imagemRascunho.jpg)
 
 <sup>Fonte: Material produzido por Pedro e Igor</sup>
 </div>
@@ -49,7 +49,7 @@ Adicionamos também um efeito de peso entre os distritos que simula uma possíve
 <sub>Figura 2 - Versão Final Gráfico SP</sub>
 <div align="center">
 
-![gráfico SP](PonderadaD3-UX\assets\graficoVersaoFinal.png)
+![grafico SP](assets\graficoVersaoFinal.png)
 
 <sup>Fonte: Material produzido por Pedro e Igor</sup>
 </div>
