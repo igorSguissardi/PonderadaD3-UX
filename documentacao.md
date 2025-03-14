@@ -28,7 +28,7 @@ Pedro Auler
 
 <sub>Figura 1 - Rascunho Gráfico SP</sub>
 
-![Rascunho Gráfico SP](C:\Users\igorp\OneDrive\Documentos\ponderadas\UserExpirienceD3\PonderadaD3-UX\assets\imagemRascunho.jpg )
+![Rascunho Gráfico SP](PonderadaD3-UX\assets\imagemRascunho.jpg)
 
 <sup>Fonte: Material produzido por Pedro e Igor</sup>
 </div>
@@ -47,8 +47,9 @@ Adicionamos também um efeito de peso entre os distritos que simula uma possíve
 &emsp;Assim ficou a versão final do gráfico plotada utilizanado a biblioteca D3.js:
 
 <sub>Figura 2 - Versão Final Gráfico SP</sub>
+<div align="center">
 
-![gráfico SP](C:\Users\igorp\OneDrive\Documentos\ponderadas\UserExpirienceD3\PonderadaD3-UX\assets\graficoVersaoFinal.png)
+![gráfico SP](PonderadaD3-UX\assets\graficoVersaoFinal.png)
 
 <sup>Fonte: Material produzido por Pedro e Igor</sup>
 </div>
