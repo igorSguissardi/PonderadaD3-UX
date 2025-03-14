@@ -20,12 +20,6 @@ Pedro Auler
 
 ### Rascunho
 &emsp;O rascunho desenhado durante o momento de brainstorm (estou me referindo ao na metade de baixo da página), no início da dinâmica, foi imaginado da seguinte forma: o contorno externo representa a cidade de São Paulo, as linhas internas são as delimitações dos distritos da cidade ou de possíveis zonas de atendimento e os pontilhados no mapa são as home bases dos gasista que foram alocadas.
-<style>
-.img-responsive {
-    max-width: 70%;
-    height: auto; 
-}
-</style>
 
 </div>
 <br>
@@ -34,7 +28,7 @@ Pedro Auler
 
 <sub>Figura 1 - Rascunho Gráfico SP</sub>
 
-<img src="assets\imagemRascunho.jpg" class="img-responsive" alt="Rascunho Grafico SP">
+<img src="assets\imagemRascunho.jpg" class="img-responsive" alt="Rascunho Grafico SP" width="400">
 
 <sup>Fonte: Material produzido por Pedro e Igor</sup>
 </div>
@@ -54,7 +48,7 @@ Adicionamos também um efeito de peso entre os distritos que simula uma possíve
 
 <sub>Figura 2 - Versão Final Gráfico SP</sub>
 <div align="center">
-<img src="assets\graficoVersaoFinal.png" class="img-responsive" alt="rafico SP">
+<img src="assets\graficoVersaoFinal.png" class="img-responsive" alt="rafico SP" width="500">
 
 <sup>Fonte: Material produzido por Pedro e Igor</sup>
 </div>
